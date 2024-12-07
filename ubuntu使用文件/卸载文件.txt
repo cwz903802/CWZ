@@ -1,0 +1,72 @@
+在 Ubuntu 中卸载软件可以通过图形界面或者命令行来完成。以下是两种方法的简要说明：
+
+### 使用图形界面
+
+1. 打开“Ubuntu 软件”或“软件中心”，这取决于你使用的 Ubuntu 版本。
+2. 在搜索栏中输入你想卸载的软件名称。
+3. 点击该软件，然后选择“移除”或“卸载”按钮。
+4. 按照提示操作，确认卸载。
+
+### 使用命令行
+
+#### 通过 `apt` 命令（适用于大多数从官方仓库安装的软件）
+
+1. 打开终端。
+2. 输入以下命令来卸载软件包，将 `package_name` 替换为你要卸载的软件包名：
+   ```bash
+   sudo apt remove package_name
+   ```
+3. 如果你还想删除与该软件包相关的配置文件，可以使用：
+   ```bash
+   sudo apt purge package_name
+   ```
+4. 最后，为了清理不再需要的依赖包，可以运行：
+   ```bash
+   sudo apt autoremove
+   ```
+
+#### 通过 `snap` 命令（适用于通过 Snap 安装的软件）
+
+如果软件是通过 Snap 工具安装的，那么你需要使用 `snap` 命令来卸载它：
+
+1. 打开终端。
+2. 使用下面的命令卸载软件，同样地，将 `snap_package_name` 替换成实际的 snap 包名：
+   ```bash
+   sudo snap remove snap_package_name
+   ```
+
+请确保你知道正在卸载的软件包的确切名称。如果你不确定，可以在终端里用 `apt search` 或者 `snap find` 来查找相关软件包的名字。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+删除软件
+方法一、如果你知道要删除软件的具体名称，可以使用
+
+
+sudo apt-get remove --purge 软件名称  
+sudo apt-get autoremove --purge 软件名称 
+方法二、如果不知道要删除软件的具体名称，可以使用
+
+
+dpkg --get-selections | grep ‘软件相关名称’
+sudo apt-get purge 一个带core的package，如果没有带core的package，则是情况而定。
+
+ 
+清理残留数据
+dpkg -l |grep ^rc|awk '{print $2}' |sudo xargs dpkg -P 
+————————————————
+
+                            版权声明：本文为博主原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接和本声明。
+                        
+原文链接：https://blog.csdn.net/jiayoudangdang/article/details/79943065

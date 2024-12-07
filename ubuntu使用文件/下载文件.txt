@@ -1,0 +1,118 @@
+touch ~~~/文件名/添加文本文件
+sudo apt update        # 更新软件包列表
+sudo apt install <package_name>    # 安装软件包
+sudo snap install <package_name>    # 安装软件包
+sudo dpkg -i <package_name>.deb    # 安装.deb包
+sudo apt -f install    # 修复依赖问题  
+
+
+通过下载源代码编译安装：
+tar -xzf <source_code_package_name>.tar.gz    # 解压源码包
+cd <source_code_package_name>    # 进入源码目录
+./configure    # 配置
+make    # 编译
+sudo make install    # 安装
+
+
+
+
+
+    使用第三方软件仓库，如Ubuntu Make：
+sudo add-apt-repository ppa:ubuntu-desktop/ubuntu-make
+sudo apt update
+sudo apt install ubuntu-make
+umake web visual-studio-code    # 例如，使用UM来安装VSCode
+
+
+
+
+
+
+
+
+在Ubuntu中安装.deb文件，你可以使用dpkg命令。以下是安装.deb文件的步骤：
+
+打开终端。
+
+使用cd命令导航到包含.deb文件的目录。
+
+运行以下命令安装.deb文件：
+
+sudo dpkg -i package_name.deb
+
+将package_name.deb替换为你的.deb文件的实际文件名。
+
+如果在安装过程中遇到依赖问题，你可以使用apt-get来安装缺失的依赖：
+
+sudo apt-get install -f
+
+这将自动修复任何依赖问题。
+
+例如，如果你的.deb文件名为example.deb，你可以这样安装它：
+
+cd /path/to/directory
+sudo dpkg -i example.deb
+sudo apt-get install -f
+
+确保替换/path/to/directory为.deb文件实际所在的目录。
+
+
+
+
+
+
+
+
+
+sudo apt search package #搜索包 
+sudo apt show package #获取包的相关信息，如说明、大小、版本等  
+sudo apt depends package #了解使用依赖  
+sudo apt rdepends package #查看该包被哪些包依赖  
+sudo apt-cache pkgnames  #执行pkgnames子命令列出当前所有可用的软件包 
+sudo apt policy package #使用policy命令显示软件包的安装状态和版本信息。
+sudo apt install package #安装包  
+sudo apt install package=version #安装指定版本的包  
+sudo apt install package --reinstall #重新安装包  
+sudo apt -f install #修复安装, "-f = --fix-missing"  
+sudo apt remove package #删除包
+sudo apt purge package  #删除包，包括删除配置文件等
+sudo apt autoremove #自动卸载所有未使用的软件包
+sudo apt source package #下载该包的源代码   
+sudo apt update #更新apt软件源信息  
+sudo apt upgrade #更新已安装的包
+sudo apt full-upgrade #在升级软件包时自动处理依赖关系  
+sudo apt dist-upgrade #升级系统  
+sudo apt dselect-upgrade #使用dselect升级  
+sudo apt build-dep package #安装相关的编译环境  
+sudo apt clean && sudo apt autoclean #清理无用的包
+sudo apt clean  #清理已下载的软件包，实际上是清楚/var/cache/apt/archives目录中的软件包
+sudo apt autoclean  #删除已经卸载的软件包备份  
+sudo apt-get check #检查是否有损坏的依赖 
+
+
+
+
+
+
+sudo aptitude update     更新可用的包列表
+sudo aptitude upgrade    升级可用的包
+sudo aptitude dist-upgrade   将系统升级到新的发行版
+sudo aptitude install pkgname    安装包
+sudo aptitude remove pkgname     删除包
+sudo aptitude purge pkgname  删除包及其配置文件
+sudo aptitude search string  搜索包
+sudo aptitude show pkgname   显示包的详细信息
+sudo aptitude clean  删除下载的包文件
+sudo aptitude autoclean  仅删除过期的包文件
+
+
+
+
+
+
+sudo dpkg -i <package.deb>    #安装包
+sudo dpkg -r <package.deb>　  #删除包
+sudo dpkg -p <package.deb>　  #彻底删除包(包括配置文件)
+dpkg -l                       #列出当前已安装的包
+
+
